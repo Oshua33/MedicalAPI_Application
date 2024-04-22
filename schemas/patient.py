@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 
-class PatientDetail(BaseModel):
+class PatientData(BaseModel):
     username: str
     first_name: str
     last_name: str
@@ -13,21 +13,22 @@ class PatientDetail(BaseModel):
     phone_number: str
 
 
-class PatientCreate(PatientDetail):
+class PatientCreate(PatientData):
     password: str
+
 
     class Config:
         json_schema_extra = {
             "example": {
-                "username": "example",
-                "first_name": "Tochukwu",
-                "last_name": "Odoh", 
-                "age": 20,
+                "username": "bleBle",
+                "first_name": "blessed",
+                "last_name": "bello", 
+                "age": 28,
                 "sex": "male",
-                "weight": 65,
-                "height": 1.5,
-                "phone_number": "+1234567890",
-                "password": "password"
+                "weight": 61,
+                "height": 5.4,
+                "phone_number": "+2348088676895",
+                "password": "blessed123"
             }
         }
 

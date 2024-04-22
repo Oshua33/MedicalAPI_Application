@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import Dict, Optional
 from schemas.doctor import Doctor
-from schemas.patient import PatientDetail, Patient
+from schemas.patient import PatientData, Patient
 
 
 class Appointment(BaseModel):
@@ -15,7 +15,7 @@ class Appointment(BaseModel):
 
 class AppointmentComplete(BaseModel):
     id: int
-    patient: PatientDetail
+    patient: PatientData
     doctor: Doctor
     date: datetime
     is_completed: bool = False 

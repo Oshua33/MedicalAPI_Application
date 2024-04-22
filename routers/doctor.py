@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from schemas.doctor import Doctor, DoctorCreate, DoctorBase, doctors
+from schemas.doctor import Doctor, DoctorCreate, DoctorData, doctors
 from services.doctor import DoctorService, UserService
 from services.patient import get_hash_password
 from logger import logger
@@ -98,7 +98,7 @@ async def delete_doctor(doctor_id: int):
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Doctor not found."
             )
-   
+
 
 @doctor_router.get("/", status_code=status.HTTP_200_OK)
 async def get_all_doctors():

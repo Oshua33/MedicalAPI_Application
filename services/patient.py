@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import HTTPException, status
-from schemas.patient import Patient, PatientDetail, patients, PatientCreate
+from schemas.patient import Patient, PatientData, patients, PatientCreate
 from passlib.context import CryptContext
 
 
@@ -26,7 +26,7 @@ def get_hash_password(password):
 def verify_password(plain_password, hash_password):
     return pwd_context.verify(plain_password, hash_password) 
 
-def get_patient_from_id(patient_id: int) -> Optional[PatientDetail]:
+def get_patient_from_id(patient_id: int) -> Optional[PatientData]:
    
     found_patient = None
     for patient in patients:

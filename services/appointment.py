@@ -7,6 +7,7 @@ from schemas.patient import Patient
 from schemas.doctor import Doctor
 from services.doctor import DoctorService
 
+
 class AppointmentService:
     
     @staticmethod
@@ -74,6 +75,7 @@ class AppointmentService:
             if appointment.patient.id == patient_id and not appointment.is_completed:
                 return appointment
         return None
+    
     
 
     

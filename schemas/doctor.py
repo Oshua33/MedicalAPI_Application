@@ -1,29 +1,30 @@
 from pydantic import BaseModel
 
 
-class DoctorBase(BaseModel):
+class DoctorData(BaseModel):
     username: str
     specialization: str
     phone: str
     is_available: bool = True
 
 
+
     class Config:
         json_schema_extra = {
             "example": {
-                "username": "DrSmith",
-                "specialization": "Cardiology",
-                "phone": "+1234567890",
+                "username": "Dr Onome",
+                "specialization": "Pediatrician",
+                "phone": "+2349076543210",
                 "is_available": True,
-                "password": "password"
+                "password": "dronome"
             }
         }
 
 
-class DoctorCreate(DoctorBase):
+class DoctorCreate(DoctorData):
     password: str
 
-class Doctor(DoctorBase):
+class Doctor(DoctorData):
     id: int
 
 doctors: list[Doctor] = []
